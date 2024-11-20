@@ -1,0 +1,22 @@
+{
+  "name": "alt-ujs",
+  "version": "0.1.0",
+  "description": "alternative rails-ujs",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taketo1113/alt-ujs.git"
+  },
+  "keywords": [
+    "ujs"
+  ],
+  "author": "Taketo Takashima",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taketo1113/alt-ujs/issues"
+  },
+  "homepage": "https://github.com/taketo1113/alt-ujs#readme"
+}
