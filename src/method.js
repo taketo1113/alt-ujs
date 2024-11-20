@@ -1,5 +1,5 @@
-import csrf from "./csrf";
-import url from "./url";
+import csrf from "./utils/csrf";
+import url from "./utils/url";
 
 document.addEventListener("DOMContentLoaded", function () {
   const targets = document.querySelectorAll("a[data-method]");
