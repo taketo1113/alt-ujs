@@ -17,7 +17,10 @@ const setConfirmEvent = function (target) {
     }
 
     if (!window.confirm(message)) {
+      // Select cancel in the confirm dialog
       event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
     }
   });
 };
