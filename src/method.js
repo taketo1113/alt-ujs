@@ -1,4 +1,5 @@
 import csrf from "./csrf";
+import url from "./url";
 
 document.addEventListener("DOMContentLoaded", function () {
   const targets = document.querySelectorAll("a[data-method]");
@@ -30,7 +31,7 @@ const setMethodEvent = function (target) {
     // Set csrf token/param
     const csrfToken = csrf.csrfToken();
     const csrfParam = csrf.csrfParam();
-    if (csrfParam && csrfToken) {
+    if (csrfParam && csrfToken && !url.isCrossOrigin(href)) {
       formContent += `<input name='${csrfParam}' value='${csrfToken}' type='hidden' />`;
     }
 
