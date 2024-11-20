@@ -1,13 +1,15 @@
 import csrf from "./utils/csrf";
 import url from "./utils/url";
 
-document.addEventListener("DOMContentLoaded", function () {
-  const targets = document.querySelectorAll("a[data-method]");
+const start = function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    const targets = document.querySelectorAll("a[data-method]");
 
-  targets.forEach(function (target) {
-    setMethodEvent(target);
+    targets.forEach(function (target) {
+      setMethodEvent(target);
+    });
   });
-});
+};
 
 const setMethodEvent = function (target) {
   target.addEventListener("click", function (event) {
@@ -44,3 +46,5 @@ const setMethodEvent = function (target) {
     event.preventDefault();
   });
 };
+
+export default { start };

@@ -1,12 +1,14 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const targets = document.querySelectorAll(
-    "a[data-confirm], button[data-confirm], input[type=submit][data-confirm]",
-  );
+const start = function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    const targets = document.querySelectorAll(
+      "a[data-confirm], button[data-confirm], input[type=submit][data-confirm]",
+    );
 
-  targets.forEach(function (target) {
-    setConfirmEvent(target);
+    targets.forEach(function (target) {
+      setConfirmEvent(target);
+    });
   });
-});
+};
 
 const setConfirmEvent = function (target) {
   target.addEventListener("click", function (event) {
@@ -24,3 +26,5 @@ const setConfirmEvent = function (target) {
     }
   });
 };
+
+export default { start };
