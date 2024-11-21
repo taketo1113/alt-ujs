@@ -1,12 +1,16 @@
 const start = function () {
   document.addEventListener("DOMContentLoaded", function () {
-    const targets = document.querySelectorAll(
-      "a[data-confirm], button[data-confirm], input[type=submit][data-confirm]",
-    );
+    setClickEvents();
+  });
+};
 
-    targets.forEach(function (target) {
-      setConfirmEvent(target);
-    });
+export const setClickEvents = function () {
+  const targets = document.querySelectorAll(
+    "a[data-confirm], button[data-confirm], input[type=submit][data-confirm]",
+  );
+
+  targets.forEach(function (target) {
+    setConfirmEvent(target);
   });
 };
 

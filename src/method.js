@@ -3,11 +3,15 @@ import url from "./utils/url";
 
 const start = function () {
   document.addEventListener("DOMContentLoaded", function () {
-    const targets = document.querySelectorAll("a[data-method]");
+    setClickEvents();
+  });
+};
 
-    targets.forEach(function (target) {
-      setMethodEvent(target);
-    });
+export const setClickEvents = function () {
+  const targets = document.querySelectorAll("a[data-method]");
+
+  targets.forEach(function (target) {
+    setMethodEvent(target);
   });
 };
 
@@ -41,6 +45,7 @@ const setMethodEvent = function (target) {
     form.style.display = "none";
 
     document.body.appendChild(form);
+
     form.querySelector('[type="submit"]').click();
 
     event.preventDefault();
