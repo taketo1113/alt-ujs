@@ -39,5 +39,8 @@
     "jsdom": "^25.0.1",
     "prettier": "^3.3.3",
     "vitest": "^2.1.5"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
