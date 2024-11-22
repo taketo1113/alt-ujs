@@ -1,4 +1,3 @@
-// @vitest-environment jsdom
 import { expect, test, describe, beforeEach, afterEach } from "vitest";
 import csrf from "../../src/utils/csrf.js";
 

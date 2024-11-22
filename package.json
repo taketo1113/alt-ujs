@@ -7,7 +7,8 @@
   "scripts": {
     "lint": "eslint src test",
     "format": "eslint src test --fix",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "@eslint/js": "^9.15.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/user-event": "^14.5.2",
+    "@vitest/coverage-v8": "^2.1.5",
     "@vitest/eslint-plugin": "^1.1.10",
     "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",

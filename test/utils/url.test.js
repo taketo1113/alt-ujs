@@ -1,4 +1,3 @@
-// @vitest-environment jsdom
 import { expect, test, describe, beforeEach } from "vitest";
 import url from "../../src/utils/url.js";
 
