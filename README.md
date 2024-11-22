@@ -30,14 +30,65 @@ npm install alt-ujs
 
 ## Usage
 
+alt-ujs works by adding data attributes to your HTML.
+The available data attributes are:
+
+- `data-confirm` : Displays confirmation dialogs for links and forms.
+- `data-method` : Enables links to perform POST, PUT, or DELETE requests.
+
+Next, add the following code to your app.
+This code activates the functionality of elements with the specified data attributes.
+
 ```js
-import AltUjs from "alt-ujs"
-AltUjs.start()
+// your-app.js
+import AltUjs from "alt-ujs";
+AltUjs.start();
+```
+
+### `data-confirm`
+
+The `data-confirm` attribute displays confirmation dialogs for links and forms.
+
+```html
+<a href="/path" data-confirm="message">Link</a>
+
+<button type="button" data-confirm="message">Button</button>
+<input type="submit" value="Submit" data-confirm="message">
+```
+
+The text specified in the `data-confirm` attribute is shown in a JavaScript `confirm()` dialog.
+If "Cancel" is selected, no further actions will be performed.
+
+### `data-method`
+
+The `data-method` attribute allows you to execute a request with a specified HTTP method instead of the default GET method when clicking a link.
+
+```html
+<a href="/path" data-method="post">Link</a>
+```
+
+When a link with the `data-method` attribute is clicked, a form is dynamically created based on the link's attributes.
+
+- The `action` attribute of the form is set to the `href` value of the link.
+- The `method` attribute of the form is set to `post` (a fixed value).
+
+Additionally, the HTTP method specified in the `data-method` attribute is included in a hidden input field with the name `_method`.
+This follows Ruby on Rails' convention, where all HTTP methods other than GET and POST are sent via POST, with the actual method specified using the `_method` parameter.
+
+The generated HTML form looks like this:
+
+```html
+<!-- <a href="/path" data-method="post">Link</a> -->
+
+<form action="/path" method="post" style="display: none;">
+  <input name="_method" value="post" type="hidden">
+  <input type="submit">
+</form>
 ```
 
 ## Development
 
-(TBD)
+After checking out the repo, run `npm install` to install dependencies. Then, run `npm test` to run the tests.
 
 ## Contributing
 
