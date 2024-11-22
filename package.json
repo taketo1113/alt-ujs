@@ -2,6 +2,7 @@
   "name": "alt-ujs",
   "version": "0.1.0",
   "description": "alternative rails-ujs",
+  "type": "module",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint src test",

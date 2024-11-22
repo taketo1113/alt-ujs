@@ -1,5 +1,5 @@
-import confirm from "./confirm";
-import method from "./method";
+import confirm from "./confirm.js";
+import method from "./method.js";
 
 const start = function () {
   startConfirm();

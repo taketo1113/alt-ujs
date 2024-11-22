@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { expect, test, describe, beforeEach, afterEach, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
-import { setClickEvents } from "../src/method";
+import { setClickEvents } from "../src/method.js";
 
 let spySubmitClick;
 

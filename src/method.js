@@ -1,5 +1,5 @@
-import csrf from "./utils/csrf";
-import url from "./utils/url";
+import csrf from "./utils/csrf.js";
+import url from "./utils/url.js";
 
 const start = function () {
   document.addEventListener("DOMContentLoaded", function () {

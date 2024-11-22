@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { expect, test, describe, beforeEach } from "vitest";
-import url from "../../src/utils/url";
+import url from "../../src/utils/url.js";
 
 beforeEach(async () => {
   // mock: window.location.herf
