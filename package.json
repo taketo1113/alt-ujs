@@ -15,7 +15,9 @@
     "url": "git+https://github.com/taketo1113/alt-ujs.git"
   },
   "keywords": [
-    "ujs"
+    "ujs",
+    "rails",
+    "rails-ujs"
   ],
   "author": "Taketo Takashima",
   "license": "MIT",
