@@ -1,14 +1,48 @@
-import { expect, test } from "vitest";
+import { expect, test, describe, afterEach } from "vitest";
 import AltUjs from "../src/index.js";
 
-test("export start", async () => {
-  expect(AltUjs.start).not.toBeNull();
+afterEach(async () => {
+  window.__ALT_UJS__ = undefined;
 });
 
-test("export startConfirm", async () => {
-  expect(AltUjs.startConfirm).not.toBeNull();
+describe("#start", () => {
+  test("export start", () => {
+    expect(AltUjs.start).not.toBeNull();
+  });
+
+  test("raise an error when start twice", () => {
+    AltUjs.start();
+
+    expect(() => AltUjs.start()).toThrowError(
+      "alt-ujs: confirm module has already been loaded.",
+    );
+  });
 });
 
-test("export startMethod", async () => {
-  expect(AltUjs.startMethod).not.toBeNull();
+describe("#startConfirm", () => {
+  test("export startConfirm", () => {
+    expect(AltUjs.startConfirm).not.toBeNull();
+  });
+
+  test("raise an error when start twice", () => {
+    AltUjs.startConfirm();
+
+    expect(() => AltUjs.startConfirm()).toThrowError(
+      "alt-ujs: confirm module has already been loaded.",
+    );
+  });
+});
+
+describe("#startMethod", () => {
+  test("export startMethod", () => {
+    expect(AltUjs.startMethod).not.toBeNull();
+  });
+
+  test("raise an error when start twice", () => {
+    AltUjs.startMethod();
+
+    expect(() => AltUjs.startMethod()).toThrowError(
+      "alt-ujs: method module has already been loaded.",
+    );
+  });
 });
