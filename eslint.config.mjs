@@ -1,5 +1,6 @@
 import globals from "globals";
-import pluginJs from "@eslint/js";
+import js from "@eslint/js";
+import importPlugin from "eslint-plugin-import";
 import vitest from "@vitest/eslint-plugin";
 import eslintConfigPrettier from "eslint-config-prettier";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
@@ -7,12 +8,14 @@ import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
-    files: ["src/**/*.js"],
+    files: ["**/*.js"],
     languageOptions: { globals: globals.browser },
+    rules: {
+      "import/extensions": ["error", "always", { ignorePackages: true }],
+    },
   },
   {
     files: ["test/**/*.js"],
-    languageOptions: { globals: globals.browser },
     plugins: {
       vitest,
     },
@@ -20,7 +23,8 @@ export default [
       ...vitest.configs.recommended.rules,
     },
   },
-  pluginJs.configs.recommended,
+  js.configs.recommended,
+  importPlugin.flatConfigs.warnings,
   eslintPluginPrettierRecommended,
   eslintConfigPrettier,
 ];
