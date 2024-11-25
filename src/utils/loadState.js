@@ -23,6 +23,8 @@ const isLoaded = function (module) {
 
 // Raise an error to prevent multiple event listeners from being registered when alt-ujs is executed more than once.
 const checkLoaded = function (module) {
+  checkLoadedRails();
+
   if (isLoaded(module)) {
     throw new Error(`alt-ujs: ${module} module has already been loaded.`);
   }
@@ -36,6 +38,18 @@ const key = function (module) {
   }
 
   return "loaded_" + module;
+};
+
+// check to load rails-ujs
+const checkLoadedRails = function () {
+  if (window._rails_loaded) {
+    // https://github.com/rails/rails/blob/7-1-stable/actionview/app/javascript/rails-ujs/index.js#L135
+    throw new Error(
+      `If you load both rails-ujs and alt-ujs, use alt-ujs only.`,
+    );
+  }
+
+  return true;
 };
 
 export default { setLoaded, checkLoaded };

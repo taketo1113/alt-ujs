@@ -45,4 +45,15 @@ describe("#checkLoaded", () => {
   test("return true when no loaded state is set for the module", () => {
     expect(loadState.checkLoaded(moduleName)).toBe(true);
   });
+
+  // for rails-ujs
+  test("raise an error when the rails-ujs is loaded", () => {
+    window._rails_loaded = true;
+
+    expect(() => loadState.checkLoaded(moduleName)).toThrowError(
+      "If you load both rails-ujs and alt-ujs, use alt-ujs only.",
+    );
+
+    window._rails_loaded = undefined;
+  });
 });
