@@ -33,6 +33,20 @@ describe("#startConfirm", () => {
   });
 });
 
+describe("#startDisable", () => {
+  test("export startDisable", () => {
+    expect(AltUjs.startDisable).not.toBeNull();
+  });
+
+  test("raise an error when start twice", () => {
+    AltUjs.startDisable();
+
+    expect(() => AltUjs.startDisable()).toThrowError(
+      "alt-ujs: disable module has already been loaded.",
+    );
+  });
+});
+
 describe("#startMethod", () => {
   test("export startMethod", () => {
     expect(AltUjs.startMethod).not.toBeNull();
