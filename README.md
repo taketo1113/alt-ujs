@@ -86,6 +86,14 @@ The generated HTML form looks like this:
 </form>
 ```
 
+### Disable Form
+
+To prevent double submission after submitting the form, the submit button will be disabled.
+
+- When the form is submitted, the `disabled` attribute is added to the submit button.
+- When navigating back in the browser, the `disabled` attribute is removed from the submit button that had been disabled.
+
+
 ## Development
 
 After checking out the repo, run `npm install` to install dependencies. Then, run `npm test` to run the tests.
