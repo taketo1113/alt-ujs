@@ -4,6 +4,9 @@
   "description": "alternative rails-ujs",
   "type": "module",
   "main": "src/index.js",
+  "files": [
+    "src"
+  ],
   "scripts": {
     "lint": "eslint src test",
     "format": "eslint src test --fix",
