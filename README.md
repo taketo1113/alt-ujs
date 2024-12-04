@@ -19,8 +19,7 @@ https://github.com/rails/rails/tree/7-1-stable/actionview/app/javascript
 - make non-GET requests from hyperlinks;
 - ~~make forms or hyperlinks submit data asynchronously with Ajax;~~
   - Not Supported
-- ~~have submit buttons become automatically disabled on form submit to prevent double-clicking.~~
-  - Not Supported yet
+- have submit buttons become automatically disabled on form submit to prevent double-clicking.
 
 ## Installation
 
