@@ -1,6 +1,6 @@
 {
   "name": "alt-ujs",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "alternative rails-ujs",
   "type": "module",
   "main": "src/index.js",
