@@ -47,6 +47,12 @@ describe("#startDisable", () => {
   });
 });
 
+describe("#resetDisable", () => {
+  test("export resetDisable", () => {
+    expect(AltUjs.resetDisable()).not.toBeNull();
+  });
+});
+
 describe("#startMethod", () => {
   test("export startMethod", () => {
     expect(AltUjs.startMethod).not.toBeNull();

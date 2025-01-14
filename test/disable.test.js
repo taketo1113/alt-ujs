@@ -1,6 +1,6 @@
 import { expect, test, beforeEach, afterEach } from "vitest";
 import userEvent from "@testing-library/user-event";
-import { setDisableFormEvents } from "../src/disable.js";
+import disable, { setDisableFormEvents } from "../src/disable.js";
 
 let calledSubmit = false;
 
@@ -57,4 +57,18 @@ test("disable the form submit button when entering input element", async () => {
 
   const elementSubmit = document.getElementById("id-submit");
   expect(elementSubmit.disabled).toBe(true);
+});
+
+test("reset disable event", async () => {
+  // prepare
+  const element = document.getElementById("id-submit");
+  const user = userEvent.setup();
+  await user.click(element);
+  const elementSubmit = document.getElementById("id-submit");
+  expect(elementSubmit.disabled).toBe(true);
+
+  disable.resetDisableEvent();
+
+  // assert
+  expect(elementSubmit.disabled).toBe(false);
 });
