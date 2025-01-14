@@ -45,4 +45,4 @@ const resetDisableEvent = function () {
   });
 };
 
-export default { start };
+export default { start, resetDisableEvent };

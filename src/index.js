@@ -29,6 +29,10 @@ const startDisable = function () {
   loadState.setLoaded(moduleName);
 };
 
+const resetDisable = function () {
+  disable.resetDisableEvent();
+};
+
 const startMethod = function () {
   const moduleName = "method";
   loadState.checkLoaded(moduleName);
@@ -39,4 +43,4 @@ const startMethod = function () {
   loadState.setLoaded(moduleName);
 };
 
-export default { start, startConfirm, startDisable, startMethod };
+export default { start, startConfirm, startDisable, resetDisable, startMethod };
