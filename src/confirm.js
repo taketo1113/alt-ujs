@@ -1,10 +1,4 @@
 const start = function () {
-  document.addEventListener("DOMContentLoaded", function () {
-    setClickEvents();
-  });
-};
-
-export const setClickEvents = function () {
   const targets = document.querySelectorAll(
     "a[data-confirm], button[data-confirm], input[type=submit][data-confirm]",
   );

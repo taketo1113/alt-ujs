@@ -1,6 +1,6 @@
 import { expect, test, beforeEach, afterEach } from "vitest";
 import userEvent from "@testing-library/user-event";
-import disable, { setDisableFormEvents } from "../src/disable.js";
+import disable from "../src/disable.js";
 
 let calledSubmit = false;
 
@@ -14,7 +14,7 @@ beforeEach(async () => {
   form.innerHTML = formContent;
   document.body.appendChild(form);
 
-  setDisableFormEvents();
+  disable.start();
 
   // mock: form submit event to bypass "Error: Not implemented: HTMLFormElement.prototype.requestSubmit"
   form.addEventListener("submit", function () {

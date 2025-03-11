@@ -1,6 +1,6 @@
 import { expect, test, describe, beforeEach, afterEach, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
-import { setClickEvents } from "../src/confirm.js";
+import confirm from "../src/confirm.js";
 
 var message;
 
@@ -21,7 +21,7 @@ describe("Link(a tag)", () => {
     link.setAttribute("data-confirm", "test message");
     document.body.appendChild(link);
 
-    setClickEvents();
+    confirm.start();
   });
 
   afterEach(async () => {
@@ -71,7 +71,7 @@ describe("Button(button tag)", () => {
     button.setAttribute("data-confirm", "test message");
     document.body.appendChild(button);
 
-    setClickEvents();
+    confirm.start();
   });
 
   afterEach(async () => {
@@ -121,7 +121,7 @@ describe("Submit(input tag)", () => {
     input.setAttribute("data-confirm", "test message");
     document.body.appendChild(input);
 
-    setClickEvents();
+    confirm.start();
   });
 
   afterEach(async () => {

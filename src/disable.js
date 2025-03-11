@@ -1,6 +1,8 @@
 const start = function () {
-  document.addEventListener("DOMContentLoaded", function () {
-    setDisableFormEvents();
+  const targets = document.querySelectorAll("form");
+
+  targets.forEach(function (target) {
+    setDisableFormEvent(target);
   });
 
   // For browser back: enable a disabled form
@@ -10,14 +12,6 @@ const start = function () {
     }
 
     resetDisableEvent();
-  });
-};
-
-export const setDisableFormEvents = function () {
-  const targets = document.querySelectorAll("form");
-
-  targets.forEach(function (target) {
-    setDisableFormEvent(target);
   });
 };
 
