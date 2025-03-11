@@ -1,6 +1,6 @@
 import { expect, test, describe, beforeEach, afterEach, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
-import { setClickEvents } from "../src/method.js";
+import method from "../src/method.js";
 
 let spySubmitClick;
 
@@ -12,7 +12,7 @@ beforeEach(async () => {
   link.setAttribute("data-method", "post");
   document.body.appendChild(link);
 
-  setClickEvents();
+  method.start();
 
   spySubmitClick = vi
     .spyOn(HTMLInputElement.prototype, "click")

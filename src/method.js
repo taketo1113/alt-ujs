@@ -2,12 +2,6 @@ import csrf from "./utils/csrf.js";
 import url from "./utils/url.js";
 
 const start = function () {
-  document.addEventListener("DOMContentLoaded", function () {
-    setClickEvents();
-  });
-};
-
-export const setClickEvents = function () {
   const targets = document.querySelectorAll("a[data-method]");
 
   targets.forEach(function (target) {
