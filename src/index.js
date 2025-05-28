@@ -1,12 +1,15 @@
 import confirm from "./confirm.js";
 import disable from "./disable.js";
 import method from "./method.js";
+import csrf from "./utils/csrf.js";
 import loadState from "./utils/loadState.js";
 
 const start = function () {
   startConfirm();
   startDisable();
   startMethod();
+
+  document.addEventListener("DOMContentLoaded", csrf.refreshCSRFTokens);
 };
 
 const startConfirm = function () {

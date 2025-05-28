@@ -14,4 +14,17 @@ const csrfParam = function () {
   }
 };
 
-export default { csrfToken, csrfParam };
+const refreshCSRFTokens = function () {
+  const token = csrfToken();
+  const param = csrfParam();
+
+  if (token && param) {
+    return document
+      .querySelectorAll('form input[name="' + param + '"]')
+      .forEach(function (input) {
+        input.value = token;
+      });
+  }
+};
+
+export default { csrfToken, csrfParam, refreshCSRFTokens };
