@@ -23,10 +23,10 @@ afterEach(async () => {
   const element = document.getElementById("id-method");
   document.body.removeChild(element);
 
-  const form = document.querySelector("form");
-  if (form) {
-    document.body.removeChild(form);
-  }
+  const forms = document.querySelectorAll("form");
+  forms.forEach(function (form) {
+    form.remove();
+  });
 
   vi.restoreAllMocks();
 });
@@ -76,7 +76,7 @@ test("create a form to submit the delete method", async () => {
 
 test("not create a form with empty data-method", async () => {
   const element = document.getElementById("id-method");
-  element.removeAttribute("data-method");
+  element.setAttribute("data-method", "");
 
   const user = userEvent.setup();
   await user.click(element);
