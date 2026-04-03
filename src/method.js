@@ -8,7 +8,8 @@ const start = function () {
     const { target } = event;
 
     const element =
-      target instanceof HTMLElement && target.closest(methodSelector);
+      (target instanceof HTMLElement && target.closest(methodSelector)) ||
+      target.closest(methodSelector);
     if (!element) {
       return;
     }

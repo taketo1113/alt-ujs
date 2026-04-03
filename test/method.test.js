@@ -74,6 +74,29 @@ test("create a form to submit the delete method", async () => {
   expect(inputSubmit).not.toBeNull();
 });
 
+test("create a form with non HTMLElement", async () => {
+  const link = document.getElementById("id-method");
+  const element = document.createElement("a");
+  link.appendChild(element);
+
+  const user = userEvent.setup();
+  await user.click(element);
+
+  // assert
+  expect(spySubmitClick).toBeCalled();
+
+  const form = document.querySelector("form");
+  expect(form.action).toBe("http://localhost:3000/#");
+  expect(form.method).toBe("post");
+
+  const inputMethod = form.querySelector("input[name='_method']");
+  expect(inputMethod.type).toBe("hidden");
+  expect(inputMethod.value).toBe("post");
+
+  const inputSubmit = form.querySelector("input[type='submit']");
+  expect(inputSubmit).not.toBeNull();
+});
+
 test("not create a form with empty data-method", async () => {
   const element = document.getElementById("id-method");
   element.setAttribute("data-method", "");
