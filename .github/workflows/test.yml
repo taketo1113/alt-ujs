@@ -23,6 +23,11 @@ jobs:
       uses: actions/setup-node@v7
       with:
         node-version: ${{ matrix.node-version }}
+    # Work around an error with Node.js v22 and Vitest 4.x
+    # https://github.com/npm/cli/issues/9787
+    - name: Update npm (for Node.js v22)
+      if: matrix.node-version == '22.x'
+      run: npm install --global npm@11
     - run: npm i
     - run: npm run lint
     - run: npm test
